@@ -6,6 +6,7 @@ import { ArrowRight, Play, MapPin, Users, Star, TrendingUp, Zap, Camera, Video }
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { GlobeCanvas } from "@/components/ui/GlobeCanvas";
 
 /* ── Floating stat chip ───────────────────────── */
 function StatChip({
@@ -52,7 +53,7 @@ const CREATOR_COLORS = [
   "from-amber-500 to-yellow-400",
   "from-emerald-500 to-teal-400",
 ];
-const CREATOR_INITIALS = ["AK", "PM", "LR", "SB", "NK"];
+const CREATOR_INITIALS = ["SK", "PM", "LR", "SB", "NK"];
 
 function CreatorAvatarStack() {
   return (
@@ -64,7 +65,7 @@ function CreatorAvatarStack() {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 + i * 0.07 }}
-            className={`relative flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br ${CREATOR_COLORS[i]} text-xs font-bold text-white ring-2 ring-[var(--bg-primary)] shadow-lg`}
+            className={`relative flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br ${CREATOR_COLORS[i]} text-xs font-bold text-white ring-2 ring-[var(--bg-primary)] shadow-[0_4px_12px_rgba(0,0,0,0.85)]`}
           >
             {init}
           </motion.div>
@@ -73,14 +74,14 @@ function CreatorAvatarStack() {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.97 }}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-glass-strong)] border border-[var(--border-default)] text-xs font-semibold text-[var(--text-secondary)] ring-2 ring-[var(--bg-primary)]"
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--bg-glass-strong)] border border-[var(--border-default)] text-xs font-semibold text-[var(--text-secondary)] ring-2 ring-[var(--bg-primary)] shadow-[0_4px_12px_rgba(0,0,0,0.85)]"
         >
           +2k
         </motion.div>
       </div>
       <div>
-        <p className="text-sm font-semibold text-[var(--text-primary)]">2,000+ Creators</p>
-        <p className="text-xs text-[var(--text-muted)]">across 8 NE states</p>
+        <p className="text-sm font-semibold text-[var(--text-primary)]" style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.95)" }}>2,000+ Creators</p>
+        <p className="text-xs text-[var(--text-muted)] font-medium" style={{ textShadow: "0 2px 6px rgba(0, 0, 0, 0.95)" }}>across 8 NE states</p>
       </div>
     </div>
   );
@@ -89,42 +90,96 @@ function CreatorAvatarStack() {
 /* ── Main Hero ────────────────────────────────── */
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden mesh-bg flex items-center">
-      {/* Background blobs */}
+    <section className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "#050008" }}>
+      {/* ── Deep space + globe background ── */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div
-          className="absolute -top-1/4 left-1/4 h-[700px] w-[700px] rounded-full opacity-[0.07]"
-          style={{
-            background: "radial-gradient(circle, var(--brand-500) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
-        />
-        <div
-          className="absolute top-1/3 -right-1/4 h-[600px] w-[600px] rounded-full opacity-[0.06]"
-          style={{
-            background: "radial-gradient(circle, var(--accent-purple) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
-        />
-        <div
-          className="absolute -bottom-1/4 left-1/3 h-[500px] w-[500px] rounded-full opacity-[0.05]"
-          style={{
-            background: "radial-gradient(circle, var(--accent-pink) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
-        />
 
-        {/* Grid overlay */}
+        {/* Stars */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            radial-gradient(1.5px 1.5px at 8% 6%, rgba(255,255,255,0.9) 0%, transparent 100%),
+            radial-gradient(1px 1px at 16% 12%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(2px 2px at 24% 4%, rgba(255,255,255,1) 0%, transparent 100%),
+            radial-gradient(1px 1px at 31% 18%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 39% 9%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 47% 3%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(2px 2px at 55% 14%, rgba(255,255,255,0.9) 0%, transparent 100%),
+            radial-gradient(1px 1px at 63% 7%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 71% 19%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 79% 5%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(2px 2px at 87% 11%, rgba(255,255,255,1) 0%, transparent 100%),
+            radial-gradient(1px 1px at 93% 17%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 4% 28%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 13% 35%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1px 1px at 21% 42%, rgba(255,255,255,0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 34% 31%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 58% 38%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 66% 44%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1px 1px at 74% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 82% 41%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 90% 36%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 97% 28%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            
+            /* Denser secondary star layer */
+            radial-gradient(1px 1px at 3% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 12% 5%, rgba(255,255,255,0.75) 0%, transparent 100%),
+            radial-gradient(1px 1px at 20% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(2px 2px at 27% 10%, rgba(255,255,255,0.9) 0%, transparent 100%),
+            radial-gradient(1px 1px at 35% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 42% 16%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 50% 12%, rgba(255,255,255,0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 57% 5%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 65% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 73% 8%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 81% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1px 1px at 88% 3%, rgba(255,255,255,0.9) 0%, transparent 100%),
+            radial-gradient(1px 1px at 95% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 6% 38%, rgba(255,255,255,0.75) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 15% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1px 1px at 25% 32%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 38% 46%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 48% 35%, rgba(255,255,255,0.9) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 54% 42%, rgba(255,255,255,0.4) 0%, transparent 100%),
+            radial-gradient(1px 1px at 62% 33%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1px 1px at 70% 48%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 77% 37%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 84% 45%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 93% 30%, rgba(255,255,255,0.5) 0%, transparent 100%)
+          `,
+        }} />
+
+        {/* Wide atmospheric purple glow */}
+        <div className="absolute left-1/2 -translate-x-1/2" style={{
+          bottom: "-10%",
+          width: "1200px",
+          height: "600px",
+          background: "radial-gradient(ellipse at center bottom, rgba(168, 85, 247, 0.7) 0%, rgba(126, 34, 206, 0.35) 45%, transparent 75%)",
+          filter: "blur(65px)",
+        }} />
+
+        {/* Animated Canvas Globe — centered, medium, bottom-clipped */}
         <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        />
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{ bottom: "-41%" }}
+        >
+          <GlobeCanvas size={950} />
+        </div>
+
+        {/* Dark shadow under globe — fades black upward from very bottom */}
+        <div className="absolute bottom-0 left-0 right-0" style={{
+          height: "45%",
+          background: "linear-gradient(to top, #050008 0%, #050008 15%, rgba(5,0,8,0.7) 50%, transparent 100%)",
+        }} />
+
+        {/* Side darkness — blends edges */}
+        <div className="absolute inset-y-0 left-0" style={{
+          width: "20%",
+          background: "linear-gradient(to right, #050008 0%, transparent 100%)",
+        }} />
+        <div className="absolute inset-y-0 right-0" style={{
+          width: "20%",
+          background: "linear-gradient(to left, #050008 0%, transparent 100%)",
+        }} />
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-4 pt-32 pb-20">
@@ -163,7 +218,8 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-lg"
+              className="text-lg md:text-xl text-slate-100 leading-relaxed max-w-lg font-medium"
+              style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9)" }}
             >
               Connect with verified influencers from Assam, Meghalaya, Manipur, and all 8 North
               East states. Build campaigns that resonate with real, local audiences.
@@ -249,11 +305,11 @@ export function Hero() {
                     <div className="relative">
                       <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-brand-500 to-[var(--accent-purple)] opacity-60 blur-sm" />
                       <div className="relative h-14 w-14 rounded-full bg-gradient-to-br from-pink-500 to-violet-600 flex items-center justify-center text-white font-bold text-lg ring-2 ring-[var(--border-brand)]">
-                        AK
+                        SK
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[var(--text-primary)]">Arjun Kalita</h3>
+                      <h3 className="font-semibold text-[var(--text-primary)]">Sameer Kashyap</h3>
                       <div className="flex items-center gap-1.5 mt-0.5">
                         <MapPin className="h-3 w-3 text-[var(--text-muted)]" />
                         <span className="text-xs text-[var(--text-muted)]">Guwahati, Assam</span>

@@ -79,14 +79,25 @@ function CategoryCard({
 
 export function CategoriesSection() {
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
-      {/* Bg glow */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+    <section className="py-24 px-4 relative overflow-hidden bg-[#050008]">
+      {/* Bg space & glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+        {/* Stars */}
+        <div className="absolute inset-0 opacity-40" style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 8% 28%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 25% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 58% 52%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 75% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1px 1px at 90% 48%, rgba(255,255,255,0.8) 0%, transparent 100%)
+          `,
+        }} />
+        {/* Glow */}
         <div
-          className="h-[600px] w-[600px] rounded-full opacity-[0.04]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full opacity-[0.07]"
           style={{
             background: "radial-gradient(circle, var(--accent-purple) 0%, transparent 70%)",
-            filter: "blur(80px)",
+            filter: "blur(90px)",
           }}
         />
       </div>

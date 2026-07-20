@@ -67,8 +67,38 @@ function PlatformIcon({ platform }: { platform: string }) {
 
 export function FeaturedCreators() {
   return (
-    <section className="py-24 px-4">
-      <div className="mx-auto max-w-6xl">
+    <section className="py-24 px-4 relative overflow-hidden bg-[#050008]">
+      {/* Space & Glow Background */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+        {/* Stars */}
+        <div className="absolute inset-0 opacity-40" style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 28% 45%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1px 1px at 45% 8%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 62% 65%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 78% 28%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 89% 52%, rgba(255,255,255,0.7) 0%, transparent 100%)
+          `,
+        }} />
+        {/* Ambient Glows */}
+        <div
+          className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full opacity-[0.06]"
+          style={{
+            background: "radial-gradient(circle, var(--accent-pink) 0%, transparent 70%)",
+            filter: "blur(90px)",
+          }}
+        />
+        <div
+          className="absolute bottom-[-10%] right-[-10%] h-[500px] w-[500px] rounded-full opacity-[0.05]"
+          style={{
+            background: "radial-gradient(circle, var(--brand-500) 0%, transparent 70%)",
+            filter: "blur(90px)",
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>

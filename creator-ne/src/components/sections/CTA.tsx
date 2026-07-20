@@ -7,7 +7,19 @@ import { Button } from "@/components/ui/Button";
 
 export function CTASection() {
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
+    <section className="py-24 px-4 relative overflow-hidden bg-[#050008]">
+      {/* Space background */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute inset-0 opacity-40" style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 8% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 22% 28%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1px 1px at 55% 62%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 78% 18%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 90% 75%, rgba(255,255,255,0.4) 0%, transparent 100%)
+          `,
+        }} />
+      </div>
       <div className="relative mx-auto max-w-4xl">
         {/* Glowing border card */}
         <motion.div

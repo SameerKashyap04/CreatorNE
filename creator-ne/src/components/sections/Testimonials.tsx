@@ -36,14 +36,28 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute right-0 top-1/4 w-80 h-80 opacity-10"
-        style={{
-          background: "radial-gradient(ellipse, var(--accent-purple) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-      />
+    <section className="py-24 px-4 relative overflow-hidden bg-[#050008]">
+      {/* Bg space & glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+        {/* Stars */}
+        <div className="absolute inset-0 opacity-40" style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 15% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 30% 75%, rgba(255,255,255,0.7) 0%, transparent 100%),
+            radial-gradient(1px 1px at 62% 18%, rgba(255,255,255,0.6) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 78% 60%, rgba(255,255,255,0.8) 0%, transparent 100%),
+            radial-gradient(1px 1px at 92% 12%, rgba(255,255,255,0.4) 0%, transparent 100%)
+          `,
+        }} />
+        {/* Right edge glow */}
+        <div
+          className="absolute right-0 top-1/4 w-[450px] h-[450px] opacity-15"
+          style={{
+            background: "radial-gradient(ellipse, var(--accent-purple) 0%, transparent 70%)",
+            filter: "blur(70px)",
+          }}
+        />
+      </div>
 
       <div className="relative mx-auto max-w-6xl">
         <div className="text-center mb-14">
