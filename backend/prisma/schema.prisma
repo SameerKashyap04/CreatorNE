@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           String    @id @default(uuid())
+  role         String    // "CREATOR", "BRAND", "ADMIN"
+  email        String    @unique
+  phone        String?   @unique
+  passwordHash String
+  status       String    @default("PENDING") // "PENDING", "APPROVED", "REJECTED"
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  creator      Creator?
+  brand        Brand?
+}
+
+model Creator {
+  id                String   @id @default(uuid())
+  userId            String   @unique
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name              String
+  photoUrl          String?
+  state             String
+  city              String
+  bio               String?  
+  languages         String   // Stored as JSON string '["English", "Assamese"]'
+  followersCount    Int      @default(0)
+  avgViews          Int      @default(0)
+  engagementRate    Float    @default(0.0)
+  verificationIdUrl String?
+  upiId             String?
+  bankDetails       String?  
+
+  socialLinks       CreatorSocialLink[]
+  portfolios        CreatorPortfolio[]
+  categories        Category[]          @relation("CreatorCategories")
+}
+
+model CreatorSocialLink {
+  id        String  @id @default(uuid())
+  creatorId String
+  creator   Creator @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  platform  String  // e.g., "instagram", "youtube"
+  url       String
+}
+
+model CreatorPortfolio {
+  id          String  @id @default(uuid())
+  creatorId   String
+  creator     Creator @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  title       String
+  mediaUrl    String
+  description String? 
+}
+
+model Brand {
+  id            String     @id @default(uuid())
+  userId        String     @unique
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  brandName     String
+  contactPerson String
+  website       String?
+  industry      String
+  campaigns     Campaign[]
+}
+
+model Campaign {
+  id          String   @id @default(uuid())
+  brandId     String
+  brand       Brand    @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  title       String
+  goal        String   
+  targetState String
+  budget      Float
+  timeline    String
+  status      String   @default("OPEN") // OPEN, IN_PROGRESS, COMPLETED
+  createdAt   DateTime @default(now())
+}
+
+model Category {
+  id       String    @id @default(uuid())
+  name     String    @unique
+  creators Creator[] @relation("CreatorCategories")
+}
