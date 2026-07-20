@@ -15,7 +15,7 @@ const variantMap = {
   default: "border-[var(--border-default)] text-[var(--text-secondary)] bg-[var(--bg-glass)]",
   success: "border-emerald-500/30 text-emerald-400 bg-emerald-500/10",
   brand:
-    "border-[var(--brand-500)]/40 text-[var(--brand-400)] bg-[var(--brand-500)]/10",
+    "border-[var(--brand-500)]/40 text-purple-100 bg-[var(--brand-500)]/20 shadow-[0_0_10px_rgba(168,85,247,0.2)]",
   warning: "border-amber-500/30 text-amber-400 bg-amber-500/10",
 };
 

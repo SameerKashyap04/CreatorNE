@@ -38,8 +38,8 @@ function StatChip({
         {icon}
       </span>
       <div>
-        <p className="text-xs text-[var(--text-muted)]">{label}</p>
-        <p className="text-sm font-bold text-[var(--text-primary)]">{value}</p>
+        <p className="text-xs text-slate-300">{label}</p>
+        <p className="text-sm font-bold text-white">{value}</p>
       </div>
     </motion.div>
   );
@@ -80,8 +80,8 @@ function CreatorAvatarStack() {
         </motion.div>
       </div>
       <div>
-        <p className="text-sm font-semibold text-[var(--text-primary)]" style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.95)" }}>2,000+ Creators</p>
-        <p className="text-xs text-[var(--text-muted)] font-medium" style={{ textShadow: "0 2px 6px rgba(0, 0, 0, 0.95)" }}>across 8 NE states</p>
+        <p className="text-sm font-semibold text-white" style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.95)" }}>2,000+ Creators</p>
+        <p className="text-xs text-slate-300 font-medium" style={{ textShadow: "0 2px 6px rgba(0, 0, 0, 0.95)" }}>across 8 NE states</p>
       </div>
     </div>
   );
@@ -218,8 +218,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-lg md:text-xl text-slate-100 leading-relaxed max-w-lg font-medium"
-              style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9)" }}
+              className="text-sm md:text-base text-slate-200 leading-relaxed max-w-lg font-light tracking-wide"
+              style={{ 
+                fontFamily: "Inter, system-ui, sans-serif",
+                textShadow: "0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9)" 
+              }}
             >
               Connect with verified influencers from Assam, Meghalaya, Manipur, and all 8 North
               East states. Build campaigns that resonate with real, local audiences.
@@ -272,9 +275,9 @@ export function Hero() {
                 { label: "Brands Onboard", value: "150+" },
                 { label: "Campaigns Run", value: "500+" },
               ].map(({ label, value }) => (
-                <div key={label} className="flex flex-col">
-                  <span className="text-2xl font-bold gradient-text-blue-purple">{value}</span>
-                  <span className="text-xs text-[var(--text-muted)]">{label}</span>
+                <div key={label} className="flex flex-col" style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.95)" }}>
+                  <span className="text-3xl font-bold text-white tracking-tight">{value}</span>
+                  <span className="text-sm text-slate-300 font-medium">{label}</span>
                 </div>
               ))}
             </motion.div>
@@ -309,10 +312,10 @@ export function Hero() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[var(--text-primary)]">Sameer Kashyap</h3>
+                      <h3 className="font-semibold text-white">Sameer Kashyap</h3>
                       <div className="flex items-center gap-1.5 mt-0.5">
-                        <MapPin className="h-3 w-3 text-[var(--text-muted)]" />
-                        <span className="text-xs text-[var(--text-muted)]">Guwahati, Assam</span>
+                        <MapPin className="h-3 w-3 text-slate-300" />
+                        <span className="text-xs text-slate-300">Guwahati, Assam</span>
                       </div>
                     </div>
                   </div>
@@ -324,7 +327,7 @@ export function Hero() {
                   {["Travel", "Culture", "Photography"].map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--brand-500)]/10 text-[var(--brand-400)] border border-[var(--brand-500)]/20"
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 text-purple-100 border border-purple-500/30 shadow-[0_0_8px_rgba(168,85,247,0.15)]"
                     >
                       {tag}
                     </span>
@@ -343,15 +346,15 @@ export function Hero() {
                       className="flex flex-col items-center gap-1 p-3 rounded-[var(--radius-lg)] bg-[var(--bg-glass)] border border-[var(--border-subtle)]"
                     >
                       <span className="text-[var(--brand-400)]">{icon}</span>
-                      <span className="text-sm font-bold text-[var(--text-primary)]">{value}</span>
-                      <span className="text-[10px] text-[var(--text-muted)]">{label}</span>
+                      <span className="text-sm font-bold text-white">{value}</span>
+                      <span className="text-[10px] text-slate-300">{label}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Platforms */}
                 <div className="flex items-center gap-2 pt-1 border-t border-[var(--border-subtle)]">
-                  <span className="text-xs text-[var(--text-muted)]">Active on</span>
+                  <span className="text-xs text-slate-300">Active on</span>
                   <div className="flex gap-2">
                     <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-orange-400">
                       <Camera className="h-3.5 w-3.5 text-white" />
