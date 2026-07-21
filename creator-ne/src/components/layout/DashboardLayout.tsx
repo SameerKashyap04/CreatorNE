@@ -16,7 +16,7 @@ export default function DashboardLayout({ children, headerTitle, headerDescripti
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   return (
-    <div className="flex h-screen bg-[var(--bg-primary)] overflow-hidden">
+    <div className="flex h-[100dvh] bg-[var(--bg-primary)] overflow-hidden">
       <Sidebar
         collapsed={sidebarCollapsed}
         onToggleCollapse={() => setSidebarCollapsed((prev) => !prev)}
