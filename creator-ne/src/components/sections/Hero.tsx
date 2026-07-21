@@ -308,11 +308,11 @@ export function Hero() {
                     <div className="relative">
                       <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-brand-500 to-[var(--accent-purple)] opacity-60 blur-sm" />
                       <div className="relative h-14 w-14 rounded-full bg-gradient-to-br from-pink-500 to-violet-600 flex items-center justify-center text-white font-bold text-lg ring-2 ring-[var(--border-brand)]">
-                        SK
+                        DV
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white">Sameer Kashyap</h3>
+                      <h3 className="font-semibold text-white">Devify</h3>
                       <div className="flex items-center gap-1.5 mt-0.5">
                         <MapPin className="h-3 w-3 text-slate-300" />
                         <span className="text-xs text-slate-300">Guwahati, Assam</span>

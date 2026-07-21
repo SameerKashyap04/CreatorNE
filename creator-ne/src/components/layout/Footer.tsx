@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Sparkles, Camera, Video, MessageCircle, Mail, ArrowUpRight } from "lucide-react";
+import { Sparkles, Camera, Video, MessageCircle, Mail, ArrowUpRight, Compass } from "lucide-react";
 
 const footerLinks = {
   Platform: [
@@ -55,7 +55,7 @@ export function Footer() {
               <div className="relative">
                 <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-brand-600 to-[var(--accent-purple)] opacity-50 blur-md group-hover:opacity-80 transition-opacity duration-300" />
                 <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-600 to-[var(--accent-purple)]">
-                  <Sparkles className="h-4 w-4 text-white" />
+                  <Compass className="h-4 w-4 text-white" />
                 </div>
               </div>
               <span className="text-lg font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>

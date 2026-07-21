@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
+import BottomNav from "./BottomNav";
 import { Bell, Search, User } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 
@@ -23,10 +24,10 @@ export default function DashboardLayout({ children, headerTitle, headerDescripti
 
       <main className="flex-1 overflow-y-auto overflow-x-hidden relative z-10 flex flex-col">
         {/* Top Header */}
-        <header className="sticky top-0 z-20 flex items-center justify-between px-8 py-5 border-b border-[var(--border-subtle)] bg-[var(--bg-primary)]/80 backdrop-blur-xl">
+        <header className="sticky top-0 z-20 flex items-center justify-between px-4 py-3 md:px-8 md:py-5 border-b border-[var(--border-subtle)] bg-[var(--bg-primary)]/80 backdrop-blur-xl">
           <div>
-            {headerTitle && <h1 className="text-2xl font-bold text-[var(--text-primary)]">{headerTitle}</h1>}
-            {headerDescription && <p className="text-sm text-[var(--text-secondary)] mt-1">{headerDescription}</p>}
+            {headerTitle && <h1 className="text-xl md:text-2xl font-bold text-[var(--text-primary)]">{headerTitle}</h1>}
+            {headerDescription && <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">{headerDescription}</p>}
           </div>
 
           <div className="flex items-center gap-6">
@@ -55,10 +56,12 @@ export default function DashboardLayout({ children, headerTitle, headerDescripti
         </header>
 
         {/* Page Content */}
-        <div className="p-8 max-w-[1400px] mx-auto w-full flex-1">
+        <div className="p-4 pb-24 md:p-8 max-w-[1400px] mx-auto w-full flex-1">
           {children}
         </div>
       </main>
+      
+      <BottomNav />
     </div>
   );
 }

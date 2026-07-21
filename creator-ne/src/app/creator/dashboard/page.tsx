@@ -31,9 +31,9 @@ const INVITATIONS = [
 
 export default function CreatorOverviewPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6 md:gap-8">
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {STATS.map((stat, idx) => (
           <StatCard
             key={stat.label}
@@ -47,7 +47,7 @@ export default function CreatorOverviewPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
         
         {/* Brand Invitations */}
         <div className="lg:col-span-2">
@@ -80,9 +80,9 @@ export default function CreatorOverviewPage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className="flex items-center justify-between group cursor-pointer hover:bg-[var(--bg-tertiary)] -mx-2 px-2 py-2.5 rounded-lg transition-colors gap-4"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between group cursor-pointer hover:bg-[var(--bg-tertiary)] -mx-2 px-3 py-3 sm:py-2.5 rounded-lg transition-colors gap-3 sm:gap-4 border border-[var(--border-subtle)] sm:border-transparent mb-2 sm:mb-0"
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 w-full sm:w-auto">
                       <div className={`p-2 rounded-lg border transition-colors ${colors}`}>
                          <Briefcase className="h-4 w-4" />
                       </div>
@@ -91,11 +91,11 @@ export default function CreatorOverviewPage() {
                         <p className="text-xs text-[var(--text-secondary)] mt-0.5">{invitation.campaign} • {invitation.budget}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-between w-full sm:w-auto gap-4 mt-2 sm:mt-0 pt-2 sm:pt-0 border-t border-[var(--border-subtle)] sm:border-t-0">
                       <Badge variant={invitation.status === "Pending Response" ? "warning" : "brand"} className="shadow-sm">
                         {invitation.status}
                       </Badge>
-                      <Button variant="secondary" size="sm" className={`h-8 !py-0 text-xs font-semibold px-3 !bg-transparent transition-all ${btnColors}`}>Review</Button>
+                      <Button variant="secondary" size="sm" className={`h-8 !py-0 text-xs font-semibold px-4 w-full sm:w-auto !bg-transparent transition-all ${btnColors}`}>Review</Button>
                     </div>
                   </motion.div>
                 );

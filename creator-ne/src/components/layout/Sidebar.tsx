@@ -9,7 +9,7 @@ import {
   Users,
   Briefcase,
   Settings,
-  Sparkles,
+  Compass,
   ChevronLeft,
   ChevronRight,
   TrendingUp,
@@ -109,7 +109,7 @@ export default function Sidebar({ collapsed, onToggleCollapse }: SidebarProps) {
     <motion.aside
       animate={{ width: collapsed ? 72 : 240 }}
       transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="glass-sidebar h-screen flex flex-col relative z-20 border-r border-[var(--border-subtle)] border-t-0 border-l-0 border-b-0 overflow-hidden"
+      className="hidden md:flex glass-sidebar h-screen flex-col relative z-20 border-r border-[var(--border-subtle)] border-t-0 border-l-0 border-b-0 overflow-hidden"
     >
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 py-6 border-b border-[var(--border-subtle)] h-[80px]">
@@ -117,7 +117,7 @@ export default function Sidebar({ collapsed, onToggleCollapse }: SidebarProps) {
           <div className="relative">
             <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-brand-600 to-[var(--accent-purple)] opacity-50 blur-md group-hover:opacity-80 transition-opacity" />
             <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-600 to-[var(--accent-purple)]">
-              <Sparkles className="h-4 w-4 text-white" />
+              <Compass className="h-4 w-4 text-white" />
             </div>
           </div>
           {!collapsed && (

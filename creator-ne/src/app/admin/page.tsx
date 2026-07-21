@@ -32,9 +32,9 @@ const PENDING_CREATORS = [
 
 export default function AdminOverviewPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6 md:gap-8">
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {STATS.map((stat, idx) => (
           <StatCard
             key={stat.label}
@@ -48,7 +48,7 @@ export default function AdminOverviewPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
         
         {/* Approvals Queue */}
         <div className="lg:col-span-2">
@@ -68,21 +68,21 @@ export default function AdminOverviewPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between group cursor-pointer hover:bg-[var(--bg-tertiary)] -mx-2 px-2 py-2.5 rounded-lg transition-colors gap-4"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between group cursor-pointer hover:bg-[var(--bg-tertiary)] -mx-2 px-3 py-3 sm:py-2.5 rounded-lg transition-colors gap-3 sm:gap-4 border border-[var(--border-subtle)] sm:border-transparent mb-2 sm:mb-0"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 w-full sm:w-auto">
                     <img src={`https://i.pravatar.cc/150?u=${creator.id}`} alt={creator.name} className="h-9 w-9 rounded-full object-cover border border-[var(--border-subtle)] group-hover:border-[var(--brand-400)]/50 transition-colors" />
                     <div>
                       <h4 className="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--brand-300)] transition-colors">{creator.name}</h4>
                       <p className="text-xs text-[var(--text-secondary)] mt-0.5">{creator.category} • {creator.state} • {creator.followers} followers</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 w-full sm:w-auto mt-2 sm:mt-0 pt-2 sm:pt-0 border-t border-[var(--border-subtle)] sm:border-t-0">
                     <Button 
                       variant="secondary" 
                       size="sm"
                       icon={<X className="h-3.5 w-3.5" />}
-                      className="h-8 !py-0 text-xs font-semibold px-3 !text-rose-400 !border !border-rose-500/30 hover:!border-rose-500/60 hover:!bg-rose-500/10 !bg-transparent rounded-lg transition-all"
+                      className="h-8 !py-0 text-xs font-semibold px-3 flex-1 sm:flex-none justify-center !text-rose-400 !border !border-rose-500/30 hover:!border-rose-500/60 hover:!bg-rose-500/10 !bg-transparent rounded-lg transition-all"
                     >
                       Cancel
                     </Button>
@@ -90,7 +90,7 @@ export default function AdminOverviewPage() {
                       variant="secondary" 
                       size="sm"
                       icon={<Check className="h-3.5 w-3.5" />}
-                      className="h-8 !py-0 text-xs font-semibold px-3 !text-emerald-400 !border !border-emerald-400/30 hover:!border-emerald-400/60 hover:!bg-emerald-400/10 !bg-transparent rounded-lg transition-all"
+                      className="h-8 !py-0 text-xs font-semibold px-3 flex-1 sm:flex-none justify-center !text-emerald-400 !border !border-emerald-400/30 hover:!border-emerald-400/60 hover:!bg-emerald-400/10 !bg-transparent rounded-lg transition-all"
                     >
                       Approve
                     </Button>
