@@ -70,12 +70,16 @@ export function CTASection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="primary" glow icon={<ArrowRight className="h-5 w-5" />} iconPosition="right">
-                Start as a Creator — Free
-              </Button>
-              <Button size="lg" variant="secondary">
-                Hire NE Creators
-              </Button>
+              <Link href="/register/creator">
+                <Button size="lg" variant="primary" glow icon={<ArrowRight className="h-5 w-5" />} iconPosition="right">
+                  Start as a Creator — Free
+                </Button>
+              </Link>
+              <Link href="/register/brand">
+                <Button size="lg" variant="secondary">
+                  Hire NE Creators
+                </Button>
+              </Link>
             </div>
 
             <p className="text-xs text-[var(--text-muted)]">

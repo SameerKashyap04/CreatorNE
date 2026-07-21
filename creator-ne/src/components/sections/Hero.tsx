@@ -244,23 +244,27 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-wrap gap-4"
             >
-              <Button
-                size="lg"
-                variant="primary"
-                glow
-                icon={<ArrowRight className="h-5 w-5" />}
-                iconPosition="right"
-              >
-                Join as Creator
-              </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                icon={<Play className="h-5 w-5 fill-current" />}
-                iconPosition="left"
-              >
-                Hire Creators
-              </Button>
+              <Link href="/register/creator">
+                <Button
+                  size="lg"
+                  variant="primary"
+                  glow
+                  icon={<ArrowRight className="h-5 w-5" />}
+                  iconPosition="right"
+                >
+                  Join as Creator
+                </Button>
+              </Link>
+              <Link href="/register/brand">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  icon={<Play className="h-5 w-5 fill-current" />}
+                  iconPosition="left"
+                >
+                  Hire Creators
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Trust metrics */}
